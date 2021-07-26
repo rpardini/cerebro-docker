@@ -1,24 +1,22 @@
-cerebro-docker
+cerebro-docker-multiarch
 --------------
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/lmenezes/cerebro.svg)](https://hub.docker.com/r/lmenezes/cerebro)
-
-
-cerebro-docker contains the official docker files for [cerebro](https://github.com/lmenezes/cerebro) project.
-Images are periodically uploaded in [lmenezes/cerebro](https://hub.docker.com/r/lmenezes/cerebro/) docker hub repo.
+This cerebro-docker fork publishes unofficial but multiarch images for [cerebro](https://github.com/lmenezes/cerebro) project.
+Images are uploaded via Github Actions
+in [rpardini/cerebro-docker](https://github.com/rpardini/cerebro-docker/pkgs/container/cerebro-docker).
 
 ### Usage
 
 For using latest cerebro execute:
 
-```
-docker run -p 9000:9000 lmenezes/cerebro
+```bash
+docker run -p 9000:9000 ghcr.io/rpardini/cerebro-docker:latest
 ```
 
 For using a specific version run:
 
-```
-docker run -p 9000:9000 lmenezes/cerebro:0.8.3
+```bash
+docker run -p 9000:9000 ghcr.io/rpardini/cerebro-docker:5a7a5ab62b749c86a5112917178e27cae5c4faa4
 ```
 
 ### Configuration
@@ -27,8 +25,12 @@ You can configure a custom port for cerebro by using the `CEREBRO_PORT` environm
 
 **Example**
 
-docker run -e CEREBRO_PORT=8080 -p 8080:8080 lmenezes/cerebro
+```bash
+docker run -e CEREBRO_PORT=8080 -p 8080:8080 ghcr.io/rpardini/cerebro-docker:latest
+```
 
 To access an elasticsearch instance running on localhost:
 
-docker run -p 9000:9000 --network=host lmenezes/cerebro
+```bash
+docker run -p 9000:9000 --network=host ghcr.io/rpardini/cerebro-docker:latest
+```
